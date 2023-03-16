@@ -1,0 +1,4 @@
+/* 作为css文件夹的出口，避免在main.js中写入太多的东西 */
+/* normalize.css是第三方的,所以直接写在main.js中就可以了 */
+@import "./reset.css";
+@import "./common.css";
