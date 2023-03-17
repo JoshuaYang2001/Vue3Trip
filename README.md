@@ -56,9 +56,14 @@ export const getAssetsURL = (image) => {
   <img :src="getAssetsURL(item.image)" alt="" />
 ```
 
+## 手写 tabbar
+
+````
+
 ## "&"符号引用上一级选择器
 
 ```css
+
 .tab-bar-item {
   flex: 1;
   display: flex;
@@ -69,4 +74,4 @@ export const getAssetsURL = (image) => {
     color: #ff9854;
   }
 }
-```
+````

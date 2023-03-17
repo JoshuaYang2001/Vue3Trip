@@ -15,23 +15,11 @@
         <span class="text">{{ item.text }}</span>
       </div>
     </template> -->
-    <van-tabbar v-model="currentIndex" active-color="#ff9854">
-      <template v-for="(item, index) in tabbarData" :key="index">
-        <van-tabbar-item @click="itemClick(index, item)">
-          <span>{{ item.text }}</span>
-          <template #icon>
-            <img
-              v-if="currentIndex !== index"
-              :src="getAssetsURL(item.image)"
-              alt=""
-            />
-            <img
-              v-else
-              :src="getAssetsURL(item.imageActive)"
-              alt=""
-            /> </template
-        ></van-tabbar-item>
-      </template>
+    <van-tabbar v-model="currentIndex">
+      <van-tabbar-item icon="home-o">标签</van-tabbar-item>
+      <van-tabbar-item icon="search">标签</van-tabbar-item>
+      <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
+      <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
     </van-tabbar>
   </div>
 </template>

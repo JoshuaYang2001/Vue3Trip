@@ -2,7 +2,7 @@ const tabbarData = [
   {
     text: "首页",
     image: "tabbar/tab_home.png",
-    imageActive: "@/assets/img/tabbar/tab_home_active.png",
+    imageActive: "tabbar/tab_home_active.png",
     path: "/home",
   },
   {
