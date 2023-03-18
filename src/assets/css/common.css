@@ -4,3 +4,11 @@
 body {
   font-size: 14px;
 }
+
+.hide-tabbar {
+  position: relative;
+  z-index: 9;
+  height: 100vh;
+  background-color: #fff;
+  overflow-y: auto;
+}

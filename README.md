@@ -48,8 +48,8 @@ index.css 作为文件的出口,导入至 main.js 中
 
 ```js
 export const getAssetsURL = (image) => {
-  return new URL(`../assets/img/${image}`, import.meta.url).href;
-};
+  return new URL(`../assets/img/${image}`, import.meta.url).href
+}
 ```
 
 ```js
@@ -58,20 +58,57 @@ export const getAssetsURL = (image) => {
 
 ## 手写 tabbar
 
-````
+```css
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  display: flex;
+  border-top: 1px solid #e9e8e8;
+  .tab-bar-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &.active {
+      color: #ff9854;
+    }
+  }
+}
+```
 
 ## "&"符号引用上一级选择器
 
-```css
+## 用 deep 进行样式穿透
 
-.tab-bar-item {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  &.active {
-    color: #ff9854;
-  }
+## navigator.geolocation.getCurrentPosition 可以用来获取用户的位置
+
+-> 最后会等到经纬度，可以利用各大地图 API 进一步实现相关功能
+
+## 动态的隐藏 tabbar 在 router/index.js 的相关路由上配置 meta 信息
+
+方案一： 利用路由 meta 中定义的 boolean 变量
+
+```js
+;<tab-bar v-if="!route.meta.hideTabBar" />
+const route = useRoute()
+```
+
+方案二： 设置一个 css 公共类,利用相对定位可设置 z-index 的特性，让内容盖住底下的 tabbar
+
+```css
+.hide-tabbar {
+  position: relative;
+  z-index: 9;
+  height: 100vh;
+  background-color: #fff;
+  overflow-y: auto;
 }
-````
+```
+
+##
+
+overflow-y: auto 什么情况下用
