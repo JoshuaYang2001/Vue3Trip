@@ -109,6 +109,35 @@ const route = useRoute()
 }
 ```
 
-##
+## 下载了 fehelper 插件帮助美化 api
 
 overflow-y: auto 什么情况下用
+
+## 二次封装 axios 网络请求单独抽取成 hooks (service/modules)
+
+直接在单个组件中调用网络请求库，会使得后续难以维护
+所以在 service 建一个 module 集中管理网路请求
+
+```js
+import hyRequest from '@/services/request'
+// 发送网络请求
+hyRequest
+  .get({
+    url: '/city/all'
+  })
+  .then((res) => {
+    console.log(res)
+  })
+```
+
+改进之后
+
+```js
+import hyRequest from '../request'
+
+export function getCityAll() {
+  return hyRequest.get({
+    url: '/city/all'
+  })
+}
+```
