@@ -25,17 +25,17 @@
 </template>
 
 <script setup>
-import tabbarData from "@/assets/data/tabbar";
-import { getAssetsURL } from "@/utlis/load_assets_img";
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-const currentIndex = ref(0);
-const router = useRouter();
+import tabbarData from '@/assets/data/tabbar'
+import { getAssetsURL } from '@/utils/load_assets_img'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+const currentIndex = ref(0)
+const router = useRouter()
 //  点击传index修改currentIndex
 const itemClick = (index, item) => {
-  currentIndex.value = index;
-  router.push(item.path);
-};
+  currentIndex.value = index
+  router.push(item.path)
+}
 </script>
 
 <style lang="less" scoped>

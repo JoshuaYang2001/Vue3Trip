@@ -22,10 +22,10 @@
 </template>
 
 <script setup>
-import tabbarData from "@/assets/data/tabbar";
-import { getAssetsURL } from "@/utlis/load_assets_img";
-import { ref } from "vue";
-const currentIndex = ref(0);
+import tabbarData from '@/assets/data/tabbar'
+import { getAssetsURL } from '@/utils/load_assets_img'
+import { ref } from 'vue'
+const currentIndex = ref(0)
 </script>
 
 <style lang="less" scoped>

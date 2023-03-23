@@ -141,3 +141,9 @@ export function getCityAll() {
   })
 }
 ```
+
+## 使用 dayjs 库生成日期
+
+对 new Data 进行二次封装 使得结果满足需要
+
+## storeToRefs() 让从数据仓库中的数据变成响应式

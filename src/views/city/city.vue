@@ -9,8 +9,9 @@
     />
     <!-- tab -->
     <van-tabs v-model:active="tabActive" color="#ff9854">
-      <van-tab :title="allCity?.cityGroup?.title">内容 1</van-tab>
-      <van-tab :title="allCity?.cityGroupOverSea?.title">内容 2</van-tab>
+      <template v-for="(value, key, index) in allCities" :key="key">
+        <van-tab :title="value.title">内容 2</van-tab>
+      </template>
     </van-tabs>
   </div>
 </template>
@@ -18,7 +19,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { getCityAll } from '@/services'
+import useCityStore from '@/stores/modules/city'
+import { storeToRefs } from 'pinia'
 const searchValue = ref('')
 const router = useRouter()
 
@@ -30,12 +32,10 @@ const cancelClick = () => {
 // tab栏切换
 const tabActive = ref()
 
-const allCity = ref()
-getCityAll().then((res) => {
-  allCity.value = res.data
-})
-// 发送网络请求
-getCityAll().then()
+// const allCity = ref()
+const cityStore = useCityStore()
+cityStore.fetchAllcitiesData()
+const { allCities } = storeToRefs(cityStore)
 </script>
 
 <style lang="less" scoped>
